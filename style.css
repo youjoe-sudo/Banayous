@@ -1,0 +1,309 @@
+:root {
+    --main-color: #6c5ce7;
+    --bg-color: #0f172a;
+    --card-bg: rgba(255, 255, 255, 0.05);
+    --text-color: #f8fafc;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    text-align: center;
+}
+/* تحسين قسم الهيرو */
+.hero {
+    height: 100vh;
+    background: linear-gradient(45deg, rgba(15, 23, 42, 0.9), rgba(108, 92, 231, 0.7)), 
+                url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1350&q=80');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.badge {
+    background: var(--main-color);
+    padding: 5px 15px;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+    display: inline-block;
+}
+
+.btn-primary, .btn-secondary {
+    padding: 12px 30px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    margin: 10px;
+    display: inline-block;
+    transition: 0.3s;
+}
+
+.btn-primary { background: var(--main-color); color: white; }
+.btn-secondary { border: 2px solid white; color: white; }
+
+.btn-primary:hover { background: #5649c0; transform: scale(1.1); }
+
+/* قسم المدير */
+.leader-section { padding: 80px 0; background: #1e293b; }
+.leader-card {
+    background: var(--card-bg);
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 40px;
+    padding: 40px;
+    border-radius: 30px;
+    border-right: 5px solid var(--main-color);
+}
+
+.leader-img img {
+    width: 200px;
+    height: 200px;
+    border-radius: 20px;
+    object-fit: cover;
+}
+
+.leader-info { flex: 1; text-align: right; }
+.quote { font-style: italic; font-size: 1.2rem; line-height: 1.8; color: #cbd5e1; margin: 15px 0; }
+.title { color: var(--main-color); font-weight: bold; }
+
+/* قسم الإحصائيات */
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    padding: 80px 5%;
+    align-items: center;
+}
+
+.stat-box {
+    background: var(--main-color);
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+}
+
+.features { list-style: none; padding: 0; }
+.features li { margin: 15px 0; font-size: 1.1rem; }
+.features i { color: var(--main-color); margin-left: 10px; }
+
+@media (max-width: 768px) {
+    .about-grid { grid-template-columns: 1fr; }
+    .leader-card { text-align: center; justify-content: center; }
+    .leader-info { text-align: center; }
+}
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 50px;
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-links { list-style: none; display: flex; gap: 20px; }
+.nav-links a { color: white; text-decoration: none; font-weight: bold; transition: 0.3s; }
+.nav-links a:hover, .nav-links a.active { color: var(--main-color); }
+
+/* Hero Section */
+.hero { padding: 100px 20px; }
+.highlight { color: var(--main-color); text-shadow: 0 0 15px var(--main-color); }
+
+/* Teacher Cards */
+.teacher-card {
+    background: var(--card-bg);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 20px;
+    backdrop-filter: blur(5px);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 200px;
+    margin: 10px auto;
+}
+
+.teacher-card:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 10px 30px rgba(108, 92, 231, 0.3);
+}
+
+.teacher-card img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 3px solid var(--main-color);
+    margin-bottom: 15px;
+}
+
+.phone-btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 15px;
+    background: var(--main-color);
+    color: white;
+    border-radius: 50px;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+/* Hierarchy Layout */
+.org-chart { display: flex; flex-direction: column; align-items: center; padding: 50px 0; }
+.grid-teachers {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    width: 90%;
+    margin-top: 30px;
+}
+
+/* Connectors (Simple line) */
+.connector {
+    width: 2px;
+    height: 40px;
+    background: var(--main-color);
+}
+
+/* Footer */
+.contact-footer { padding: 50px; background: #070b14; }
+.social-icons { font-size: 2rem; display: flex; justify-content: center; gap: 30px; margin-top: 20px; }
+.social-icons a { color: white; transition: 0.3s; }
+.social-icons a:hover { color: var(--main-color); transform: rotate(15deg); }
+
+/* Responsive */
+@media (max-width: 768px) {
+    .navbar { padding: 20px; }
+    .nav-links { gap: 10px; }
+}
+/* خلفية خاصة لصفحة المدرسين */
+.teachers-page {
+    background: radial-gradient(circle at top, #1e293b 0%, #0f172a 100%);
+    padding-bottom: 100px;
+}
+
+.page-header { margin: 50px 0; }
+.page-header h1 { font-size: 2.5rem; color: var(--main-color); }
+
+/* المخطط الإداري */
+.org-chart-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.v-line {
+    width: 2px;
+    height: 50px;
+    background: linear-gradient(to bottom, var(--main-color), transparent);
+    margin: 10px 0;
+}
+
+/* كارت المدير الكبير */
+.leader-card-main {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    border: 2px solid var(--main-color);
+    padding: 40px;
+    border-radius: 30px;
+    position: relative;
+    box-shadow: 0 0 30px rgba(108, 92, 231, 0.2);
+}
+
+.card-badge {
+    position: absolute;
+    top: -15px;
+    right: 50%;
+    transform: translateX(50%);
+    background: var(--main-color);
+    padding: 5px 20px;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+/* كروت المدرسين */
+.teachers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 25px;
+    width: 90%;
+    margin-top: 20px;
+}
+
+.teacher-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 25px;
+    border-radius: 20px;
+    transition: 0.4s;
+    margin-left: 10px;
+    margin-right: 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+.teacher-card:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-10px);
+    border-color: var(--main-color);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+}
+
+.subject-tag {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: var(--main-color);
+    color: white;
+    padding: 4px 12px;
+    font-size: 0.7rem;
+    border-bottom-right-radius: 15px;
+}
+
+.teacher-card img {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+    border: 3px solid rgba(255,255,255,0.2);
+}
+
+.call-btn {
+    background: var(--main-color);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 50px;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 15px;
+    transition: 0.3s;
+}
+
+.call-btn:hover { background: #fff; color: var(--main-color); }
+
+.contact-icon {
+    color: #25d366;
+    text-decoration: none;
+    font-size: 0.9rem;
+    display: block;
+    margin-top: 10px;
+}
+
+/* تنسيق الصفوف */
+.row { display: flex; gap: 30px; justify-content: center; }
+
+@media (max-width: 768px) {
+    .row { flex-direction: column; }
+    .teachers-grid { grid-template-columns: 1fr 1fr; }
+}

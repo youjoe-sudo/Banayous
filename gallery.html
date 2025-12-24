@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>معرض الصور - مدرسة بنايوس الثانوية</title>
+</head>
+<style>
+:root {
+    --main: #6c5ce7;
+    --bg: #0f172a;
+}
+
+body {
+    background-color: var(--bg);
+    margin: 0;
+    padding: 50px 20px;
+    display: flex;
+    justify-content: center;
+    perspective: 1000px; /* عشان تأثير الـ 3D */
+}
+
+.gallery-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1400px;
+    width: 100%;
+}
+
+.glass-card {
+    position: relative;
+    height: 350px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    overflow: hidden;
+    cursor: pointer;
+    transform-style: preserve-3d; /* مهم جداً للـ 3D */
+    transition: box-shadow 0.3s ease;
+    animation: slideUp 0.8s ease forwards;
+    opacity: 0;
+}
+
+/* انيميشن ظهور الصور واحدة ورا التانية */
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(50px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.glass-card:nth-child(1) { animation-delay: 0.1s; }
+.glass-card:nth-child(2) { animation-delay: 0.2s; }
+.glass-card:nth-child(3) { animation-delay: 0.3s; }
+.glass-card:nth-child(4) { animation-delay: 0.4s; }
+.glass-card:nth-child(5) { animation-delay: 0.5s; }
+.glass-card:nth-child(6) { animation-delay: 0.6s; }
+
+.glass-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.5s;
+    transform: translateZ(20px); /* يخلي الصورة تحسها طايرة بره الكارت */
+}
+
+.glass-card:hover {
+    box-shadow: 0 20px 50px rgba(108, 92, 231, 0.3);
+    border-color: var(--main);
+}
+
+.glass-card:hover img {
+    transform: translateZ(50px) scale(1.1);
+}
+
+/* نافذة العرض الكبيرة */
+.full-view {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(15, 23, 42, 0.95);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    backdrop-filter: blur(15px);
+}
+
+.full-view img {
+    max-width: 90%;
+    max-height: 85%;
+    border-radius: 20px;
+    box-shadow: 0 0 40px var(--main);
+    animation: zoomIn 0.3s ease;
+}
+
+@keyframes zoomIn {
+    from { transform: scale(0.5); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+</style>
+<body>
+
+    <div class="gallery-container">
+        <div class="glass-card" data-tilt>
+            <img src="Images/1.jpg" alt="صورة">
+        </div>
+
+        <div class="glass-card" data-tilt>
+            <img src="Images/2.jpg" alt="صورة">
+        </div>
+
+        <div class="glass-card" data-tilt>
+            <img src="Images/3 (1).jpg" alt="صورة">
+        </div>
+
+        <div class="glass-card" data-tilt>
+            <img src="Images/3 (2).jpg" alt="صورة">
+        </div>
+
+        <div class="glass-card" data-tilt>
+            <img src="Images/3 (3).jpg" alt="صورة">
+        </div>
+
+        <div class="glass-card" data-tilt>
+            <img src="Images/3 (4).jpg" alt="صورة">
+        </div>
+        <div class="glass-card" data-tilt>
+            <img src="Images/3 (5).jpg" alt="صورة">
+        </div>
+        <div class="glass-card" data-tilt>
+            <img src="Images/3 (6).jpg" alt="صورة">
+        </div>
+        <div class="glass-card" data-tilt>
+            <img src="Images/4 (1).jpg" alt="صورة">
+        </div>
+        <div class="glass-card" data-tilt>
+            <img src="Images/4 (2).jpg" alt="صورة">
+        </div>
+        <div class="glass-card" data-tilt>
+            <img src="Images/4 (3).jpg" alt="صورة">
+        </div>
+        <div class="glass-card" data-tilt>
+            <img src="Images/5.jpg" alt="صورة">
+        </div>
+        <div class="glass-card" data-tilt>
+            <img src="Images/6 (10).jpg" alt="صورة">
+        </div>
+        <div class="glass-card" data-tilt>
+            <img src="Images/6 (11).jpg" alt="صورة">
+        </div>
+        <div class="glass-card" data-tilt>
+            <img src="Images/6 (12).jpg" alt="صورة">
+        </div>
+        <div class="glass-card" data-tilt>
+            <img src="Images/6 (13).jpg" alt="صورة">
+        </div>
+        <div class="glass-card" data-tilt>
+            <img src="Images/6 (14).jpg" alt="صورة">
+        </div>
+        <div class="glass-card" data-tilt>
+            <img src="Images/6 (16).jpg" alt="صورة">
+        </div>
+        <div class="glass-card" data-tilt>
+            <img src="Images/6 (17).jpg" alt="صورة">
+        </div>
+        <div class="glass-card" data-tilt>
+            <img src="Images/6 (18).jpg" alt="صورة">
+        </div>
+        <div class="glass-card" data-tilt>
+            <img src="Images/6 (19).jpg" alt="صورة">
+        </div>
+        <div class="glass-card" data-tilt>
+            <img src="Images/6 (2).jpg" alt="صورة">
+        </div>
+        <div class="glass-card" data-tilt>
+            <img src="Images/6 (3).jpg" alt="صورة">
+        </div>
+        <div class="glass-card" data-tilt>
+            <img src="Images/6 (4).jpg" alt="صورة">
+        </div>
+        <div class="glass-card" data-tilt>
+            <img src="Images/6 (5).jpg" alt="صورة">
+        </div>
+        <div class="glass-card" data-tilt>
+            <img src="Images/6 (6).jpg" alt="صورة">
+        </div>
+        <div class="glass-card" data-tilt>
+            <img src="Images/6 (7).jpg" alt="صورة">
+        </div>
+        <div class="glass-card" data-tilt>
+            <img src="Images/6 (8).jpg" alt="صورة">
+        </div>
+        <div class="glass-card" data-tilt>
+            <img src="Images/6 (9).jpg" alt="صورة">
+        </div>
+    </div>
+
+    <div id="fullView" class="full-view" onclick="this.style.display='none'">
+        <img id="innerImg">
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
+    <script>
+        // تشغيل تأثير الـ 3D Tilt
+VanillaTilt.init(document.querySelectorAll(".glass-card"), {
+    max: 15, // درجة الميلان
+    speed: 400, // سرعة الانيميشن
+    glare: true, // إضافة لمعة زجاجية
+    "max-glare": 0.5,
+});
+
+// فتح الصورة
+function openFull(src) {
+    const view = document.getElementById('fullView');
+    const img = document.getElementById('innerImg');
+    img.src = src;
+    view.style.display = 'flex';
+}
+
+// ربط الصور بفتح النافذة
+document.querySelectorAll('.glass-card img').forEach(image => {
+    image.onclick = () => openFull(image.src);
+});
+    </script>
+</body>
+</html>
